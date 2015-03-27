@@ -13,14 +13,14 @@ module.exports = function composedCall(args, cb){
 		var order = pending;
 		pending ++;
 		return function(err, result){
-			pending--
+			pending--;
 			if(err){
 				callback(err);
 			}
 			else{
 				results[order] = result;
 				if(! pending){
-					callback(null, results)
+					callback(null, results);
 				}
 			}
 		};
@@ -33,12 +33,7 @@ module.exports = function composedCall(args, cb){
 		}
 	}
 
-
-
-
 };
-
-
 
 
 ///  Calls
